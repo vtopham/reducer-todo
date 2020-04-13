@@ -13,9 +13,6 @@ export const initialState = [{
 }]
 
 export const reducer = (state, action) => {
-    console.log("reducer runs")
-    console.log(state)
-    console.log(action)
     switch (action.type) {
         case 'add':
             return [...state, {
@@ -25,12 +22,14 @@ export const reducer = (state, action) => {
             }]
         case 'toggle':
             return state.map(todoItem => {
-                // console.log(action.payload)
-                // console.log(todoItem)
                 if (todoItem.id.toString() === action.payload) {
                     return {...todoItem, completed: !todoItem.completed}
                 }
                 return todoItem
+            })
+        case 'CLEAR_COMPLETED':
+            return state.filter(todoItem => {
+                return todoItem.completed === false
             })
     }
 }
