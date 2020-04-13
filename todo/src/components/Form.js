@@ -11,6 +11,7 @@ const Form = (props) => {
     const handleAdd = (event) => {
         event.preventDefault()
         dispatch({type: "add", payload: taskInput})
+        
     }
     return (
         <>
