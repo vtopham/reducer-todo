@@ -1,6 +1,7 @@
 import React, {useReducer} from 'react'
 import {reducer, initialState} from '../reducers/reducer'
 import styled from 'styled-components'
+import Form from './Form'
 
 const NewTask = styled.div`
     display: flex;
@@ -34,6 +35,7 @@ const Todo = () => {
     return (
         <>
         <h1>Todo!</h1>
+        <Form dispatch = {dispatchTodoList}/>
         {todoList.map(task => {
             return(
                 <NewTask key = {task.id}>

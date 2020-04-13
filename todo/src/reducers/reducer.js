@@ -11,6 +11,14 @@ export const initialState = [{
     completed: true,
     id: 2984029834
 }]
+
 export const reducer = (state, action) => {
-    return []
+    switch (action.type) {
+        case 'add':
+            return [...state, {
+                item: action.payload,
+                completed: false,
+                id: Math.floor(Math.random() * 1000000)
+            }]
+    }
 }
